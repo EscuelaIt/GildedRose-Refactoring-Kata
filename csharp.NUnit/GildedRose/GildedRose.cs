@@ -4,6 +4,8 @@ namespace GildedRoseKata;
 
 public class GildedRose
 {
+    const int MaxItemQuality = 50;
+    
     IList<Item> Items;
 
     public GildedRose(IList<Item> Items)
@@ -49,7 +51,7 @@ public class GildedRose
             }
             else
             {
-                if (Items[i].Quality < MaxItemQuality())
+                if (Items[i].Quality < MaxItemQuality)
                 {
                     Items[i].Quality += 1;
                 }
@@ -79,7 +81,7 @@ public class GildedRose
 
     void jkjfaklsd(int i)
     {
-        if (Items[i].Quality < MaxItemQuality())
+        if (Items[i].Quality < MaxItemQuality)
         {
             Items[i].Quality += 1;
 
@@ -87,7 +89,7 @@ public class GildedRose
             {
                 if (Items[i].SellIn < 11)
                 {
-                    if (Items[i].Quality < MaxItemQuality())
+                    if (Items[i].Quality < MaxItemQuality)
                     {
                         Items[i].Quality += 1;
                     }
@@ -95,7 +97,7 @@ public class GildedRose
 
                 if (Items[i].SellIn < 6)
                 {
-                    if (Items[i].Quality < MaxItemQuality())
+                    if (Items[i].Quality < MaxItemQuality)
                     {
                         Items[i].Quality += 1;
                     }
@@ -113,10 +115,5 @@ public class GildedRose
                 Items[i].Quality -= 1;
             }
         }
-    }
-
-    static int MaxItemQuality()
-    {
-        return 50;
     }
 }
