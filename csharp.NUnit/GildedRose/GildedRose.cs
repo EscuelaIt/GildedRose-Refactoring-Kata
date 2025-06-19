@@ -28,8 +28,6 @@ public class GildedRose
 
     void kdjfkajsd(int i)
     {
-        var maxItemQuality = 50;
-        
         if (Items[i].SellIn < 0)
         {
             if (Items[i].Name != "Aged Brie")
@@ -51,7 +49,7 @@ public class GildedRose
             }
             else
             {
-                if (Items[i].Quality < maxItemQuality)
+                if (Items[i].Quality < MaxItemQuality())
                 {
                     Items[i].Quality += 1;
                 }
@@ -81,9 +79,7 @@ public class GildedRose
 
     void jkjfaklsd(int i)
     {
-        var maxItemQuality = 50;
-        
-        if (Items[i].Quality < maxItemQuality)
+        if (Items[i].Quality < MaxItemQuality())
         {
             Items[i].Quality += 1;
 
@@ -91,7 +87,7 @@ public class GildedRose
             {
                 if (Items[i].SellIn < 11)
                 {
-                    if (Items[i].Quality < maxItemQuality)
+                    if (Items[i].Quality < MaxItemQuality())
                     {
                         Items[i].Quality += 1;
                     }
@@ -99,7 +95,7 @@ public class GildedRose
 
                 if (Items[i].SellIn < 6)
                 {
-                    if (Items[i].Quality < maxItemQuality)
+                    if (Items[i].Quality < MaxItemQuality())
                     {
                         Items[i].Quality += 1;
                     }
@@ -117,5 +113,10 @@ public class GildedRose
                 Items[i].Quality -= 1;
             }
         }
+    }
+
+    static int MaxItemQuality()
+    {
+        return 50;
     }
 }
