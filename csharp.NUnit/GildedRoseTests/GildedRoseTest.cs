@@ -11,7 +11,7 @@ public class GildedRoseTest
     {
         var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
         var app = new GildedRose(items);
-        app.UpdateQuality();
+        app.EndDay();
         Assert.That(items[0].Name, Is.EqualTo("foo"));
     }
 }

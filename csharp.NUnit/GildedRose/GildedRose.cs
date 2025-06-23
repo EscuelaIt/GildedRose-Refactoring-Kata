@@ -14,18 +14,17 @@ public class GildedRose
     {
         this.Items = Items;
     }
-
-    // Refactor 6: smell leaked abstraction (en este caso semántica)
-    public void UpdateQuality()
+    
+    public void EndDay()
     {
         foreach (var item in Items)
         {
-            UpdateQualityOf(item);
+            EndDayOf(item);
         }
     }
     
-    //Refactor 1, smell: obsesión por primitivos en parámetro i.
-    void UpdateQualityOf(Item item)
+    
+    void EndDayOf(Item item)
     {
         //Refactor 7: extract class!
         aklsjdflkadjf(item);
@@ -33,7 +32,7 @@ public class GildedRose
         kdjfkajsd(item);
     }
 
-    //Refactor 1: smell: obsesión por primitivos en parámetro i.
+    
     void kdjfkajsd(Item item)
     {
         if (item.SellIn < 0)
@@ -60,7 +59,7 @@ public class GildedRose
         }
     }
 
-    //Refactor 1: smell: obsesión por primitivos en parámetro i.
+    
     void DecreaseSellInByOneIfNotSulfuras(Item item)
     {
         if (item.Name != "Sulfuras, Hand of Ragnaros")
