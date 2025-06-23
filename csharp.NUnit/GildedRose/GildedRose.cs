@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRoseKata;
 
@@ -18,101 +19,102 @@ public class GildedRose
     {
         for (var i = 0; i < Items.Count; i++)
         {
-            UpdateQualityOfItemByIndex(i);
+            var item = Items[i];
+            UpdateQualityOfItemByIndex(i, item);
         }
     }
     
     //Refactor 1, smell: obsesión por primitivos en parámetro i.
-    void UpdateQualityOfItemByIndex(int i)
+    void UpdateQualityOfItemByIndex(int i, Item item)
     {
         //Refactor 7: extract class!
-        aklsjdflkadjf(i);
-        DecreaseSellInByOneIfNotSulfuras(i);
-        kdjfkajsd(i);
+        aklsjdflkadjf(i, item);
+        DecreaseSellInByOneIfNotSulfuras(i, item);
+        kdjfkajsd(item);
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void kdjfkajsd(int i)
+    void kdjfkajsd(Item item)
     {
-        if (Items[i].SellIn < 0)
+        if (item.SellIn < 0)
         {
-            if (Items[i].Name != "Aged Brie")
+            if (item.Name != "Aged Brie")
             {
                 //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
-                if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     //Refactor 4: smell código duplicado de algo que ya se extrajo parcialmente
-                    if (Items[i].Quality > 0)
+                    if (item.Quality > 0)
                     {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                        if (item.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            Items[i].Quality -= 1;
+                            item.Quality -= 1;
                         }
                     }
                 }
                 else
                 {
-                    Items[i].Quality -= Items[i].Quality;
+                    item.Quality -= item.Quality;
                 }
             }
             else
             {
-                if (Items[i].Quality < MaxItemQuality)
+                if (item.Quality < MaxItemQuality)
                 {
-                    Items[i].Quality += 1;
+                    item.Quality += 1;
                 }
             }
         }
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void DecreaseSellInByOneIfNotSulfuras(int i)
+    void DecreaseSellInByOneIfNotSulfuras(int i, Item item)
     {
-        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+        if (item.Name != "Sulfuras, Hand of Ragnaros")
         {
-            Items[i].SellIn -= 1;
+            item.SellIn -= 1;
         }
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void aklsjdflkadjf(int i)
+    void aklsjdflkadjf(int i, Item item)
     {
-        if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
         {
-            DecrementQualityByOneIfNotSulfuras(i);
+            DecrementQualityByOneIfNotSulfuras(i, item);
         }
         else
         {
-            jkjfaklsd(i);
+            jkjfaklsd(item);
         }
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void jkjfaklsd(int i)
+    void jkjfaklsd(Item item)
     {
-        if (Items[i].Quality < MaxItemQuality)
+        if (item.Quality < MaxItemQuality)
         {
-            Items[i].Quality += 1;
+            item.Quality += 1;
 
-            if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
                 //Refactor 2: ¿es esto un smell? ¿Es cirugía a escopetazos?
-                if (Items[i].SellIn < 11)
+                if (item.SellIn < 11)
                 {
                     //Refactor 3: smell códido duplicado (esta es la primera vez)
-                    if (Items[i].Quality < MaxItemQuality)
+                    if (item.Quality < MaxItemQuality)
                     {
-                        Items[i].Quality += 1;
+                        item.Quality += 1;
                     }
                 }
 
                 //Refactor 2: ¿es esto un smell? ¿Es cirugía a escopetazos?
-                if (Items[i].SellIn < 6)
+                if (item.SellIn < 6)
                 {
                     //Refactor 3: smell códido duplicado (esta es la segunda vez)
-                    if (Items[i].Quality < MaxItemQuality)
+                    if (item.Quality < MaxItemQuality)
                     {
-                        Items[i].Quality += 1;
+                        item.Quality += 1;
                     }
                 }
             }
@@ -120,26 +122,14 @@ public class GildedRose
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void DecrementQualityByOneIfNotSulfuras(int i)
+    void DecrementQualityByOneIfNotSulfuras(int i, Item item)
     {
-        if (Items[i].Quality > 0)
+        if (item.Quality > 0)
         {
-            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+            if (item.Name != "Sulfuras, Hand of Ragnaros")
             {
-                Items[i].Quality -= 1;
+                item.Quality -= 1;
             }
         }
     }
 }
-
-// Refactor 0: renombres que pueden ser problemáticos si nuestro IDE no se da cuenta (culpa de devs, no del IDE).
-# if FALSE
-public class SomethingThatCallsGildedRose
-{
-    public void DoSomething()
-    {
-        var gildedRose = new GildedRose(new List<Item>());
-        gildedRose.UpdateQuality();
-    }
-}
-#endif
