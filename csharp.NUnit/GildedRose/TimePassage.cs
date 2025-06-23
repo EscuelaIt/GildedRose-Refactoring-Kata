@@ -2,13 +2,14 @@
 
 class TimePassage
 {
-    const int MaxItemQuality = 50;
     const int SomethingLikeThresholdOfBackstagePassesSellIn = 11;
     readonly Item subject;
-    
-    public TimePassage(Item subject)
+    readonly int maxItemQuality;
+
+    public TimePassage(Item subject, int maxItemQuality)
     {
         this.subject = subject;
+        this.maxItemQuality = maxItemQuality;
     }
 
     public void PassOneDay()
@@ -31,7 +32,7 @@ class TimePassage
         
         void jkjfaklsd(Item item)
         {
-            if (item.Quality < MaxItemQuality)
+            if (item.Quality < maxItemQuality)
             {
                 item.Quality += 1;
 
@@ -69,7 +70,7 @@ class TimePassage
             }
             else
             {
-                if (item.Quality < MaxItemQuality)
+                if (item.Quality < maxItemQuality)
                 {
                     item.Quality += 1;
                 }
@@ -96,9 +97,9 @@ class TimePassage
         }
     }
     
-    static void IncreaseQualityByOne(Item item)
+    void IncreaseQualityByOne(Item item)
     {
-        if (item.Quality < MaxItemQuality)
+        if (item.Quality < maxItemQuality)
         {
             item.Quality += 1;
         }

@@ -25,7 +25,7 @@ public class GildedRose
     
     void EndDayOf(Item item)
     {
-        var timePassage = new TimePassage(item);
+        var timePassage = new TimePassage(item, MaxItemQuality);
         timePassage.PassOneDay();
     }
 }
