@@ -6,6 +6,7 @@ namespace GildedRoseKata;
 public class GildedRose
 {
     const int MaxItemQuality = 50;
+    const int SomethingLikeThresholdOfBackstagePassesSellIn = 11;
     
     IList<Item> Items;
 
@@ -97,8 +98,7 @@ public class GildedRose
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
-                //Refactor 2: ¿es esto un smell? ¿Es cirugía a escopetazos?
-                if (item.SellIn < 11)
+                if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
                 {
                     //Refactor 3: smell códido duplicado (esta es la primera vez)
                     if (item.Quality < MaxItemQuality)
@@ -107,7 +107,6 @@ public class GildedRose
                     }
                 }
 
-                //Refactor 2: ¿es esto un smell? ¿Es cirugía a escopetazos?
                 if (item.SellIn < 6)
                 {
                     //Refactor 3: smell códido duplicado (esta es la segunda vez)
