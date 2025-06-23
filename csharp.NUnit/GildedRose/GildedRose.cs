@@ -109,13 +109,17 @@ public class GildedRose
 
                 if (item.SellIn < 6)
                 {
-                    //Refactor 3: smell códido duplicado (esta es la segunda vez)
-                    if (item.Quality < MaxItemQuality)
-                    {
-                        item.Quality += 1;
-                    }
+                    IncreaseQualityByOne(item);
                 }
             }
+        }
+    }
+
+    static void IncreaseQualityByOne(Item item)
+    {
+        if (item.Quality < MaxItemQuality)
+        {
+            item.Quality += 1;
         }
     }
 
