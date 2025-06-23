@@ -17,9 +17,8 @@ public class GildedRose
     // Refactor 6: smell leaked abstraction (en este caso semántica)
     public void UpdateQuality()
     {
-        for (var i = 0; i < Items.Count; i++)
+        foreach (var item in Items)
         {
-            var item = Items[i];
             UpdateQualityOf(item);
         }
     }
