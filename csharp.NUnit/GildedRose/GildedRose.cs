@@ -13,6 +13,7 @@ public class GildedRose
         this.Items = Items;
     }
 
+    // Refactor 6: smell leaked abstraction (en este caso semántica)
     public void UpdateQuality()
     {
         for (var i = 0; i < Items.Count; i++)
