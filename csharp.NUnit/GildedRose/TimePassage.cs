@@ -1,0 +1,106 @@
+﻿namespace GildedRoseKata;
+
+class TimePassage
+{
+    const int MaxItemQuality = 50;
+    const int SomethingLikeThresholdOfBackstagePassesSellIn = 11;
+    readonly Item subject;
+    
+    public TimePassage(Item subject)
+    {
+        this.subject = subject;
+    }
+
+    public void PassOneDay()
+    {
+        aklsjdflkadjf(subject);
+        DecreaseSellInByOneIfNotSulfuras(subject);
+        kdjfkajsd(subject);
+    }
+    
+    void aklsjdflkadjf(Item item)
+    {
+        if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+        {
+            DecrementQualityByOneIfNotSulfuras(item);
+        }
+        else
+        {
+            jkjfaklsd(item);
+        }
+        
+        void jkjfaklsd(Item item)
+        {
+            if (item.Quality < MaxItemQuality)
+            {
+                item.Quality += 1;
+
+                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                {
+                    if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
+                    {
+                        IncreaseQualityByOne(item);
+                    }
+
+                    if (item.SellIn < 6)
+                    {
+                        IncreaseQualityByOne(item);
+                    }
+                }
+            }
+        }
+    }
+
+    void kdjfkajsd(Item item)
+    {
+        if (item.SellIn < 0)
+        {
+            if (item.Name != "Aged Brie")
+            {
+                //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
+                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                {
+                    DecrementQualityByOneIfNotSulfuras(item);
+                }
+                else
+                {
+                    item.Quality -= item.Quality;
+                }
+            }
+            else
+            {
+                if (item.Quality < MaxItemQuality)
+                {
+                    item.Quality += 1;
+                }
+            }
+        }
+    }
+    
+    void DecreaseSellInByOneIfNotSulfuras(Item item)
+    {
+        if (item.Name != "Sulfuras, Hand of Ragnaros")
+        {
+            item.SellIn -= 1;
+        }
+    }
+    
+    void DecrementQualityByOneIfNotSulfuras(Item item)
+    {
+        if (item.Quality > 0)
+        {
+            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            {
+                item.Quality -= 1;
+            }
+        }
+    }
+    
+    static void IncreaseQualityByOne(Item item)
+    {
+        if (item.Quality < MaxItemQuality)
+        {
+            item.Quality += 1;
+        }
+    }
+}
