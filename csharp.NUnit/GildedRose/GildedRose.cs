@@ -20,16 +20,16 @@ public class GildedRose
         for (var i = 0; i < Items.Count; i++)
         {
             var item = Items[i];
-            UpdateQualityOfItemByIndex(i, item);
+            UpdateQualityOf(item);
         }
     }
     
     //Refactor 1, smell: obsesión por primitivos en parámetro i.
-    void UpdateQualityOfItemByIndex(int i, Item item)
+    void UpdateQualityOf(Item item)
     {
         //Refactor 7: extract class!
-        aklsjdflkadjf(i, item);
-        DecreaseSellInByOneIfNotSulfuras(i, item);
+        aklsjdflkadjf(item);
+        DecreaseSellInByOneIfNotSulfuras(item);
         kdjfkajsd(item);
     }
 
@@ -68,7 +68,7 @@ public class GildedRose
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void DecreaseSellInByOneIfNotSulfuras(int i, Item item)
+    void DecreaseSellInByOneIfNotSulfuras(Item item)
     {
         if (item.Name != "Sulfuras, Hand of Ragnaros")
         {
@@ -77,11 +77,11 @@ public class GildedRose
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void aklsjdflkadjf(int i, Item item)
+    void aklsjdflkadjf(Item item)
     {
         if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
         {
-            DecrementQualityByOneIfNotSulfuras(i, item);
+            DecrementQualityByOneIfNotSulfuras(item);
         }
         else
         {
@@ -122,7 +122,7 @@ public class GildedRose
     }
 
     //Refactor 1: smell: obsesión por primitivos en parámetro i.
-    void DecrementQualityByOneIfNotSulfuras(int i, Item item)
+    void DecrementQualityByOneIfNotSulfuras(Item item)
     {
         if (item.Quality > 0)
         {
