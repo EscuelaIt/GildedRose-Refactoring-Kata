@@ -25,6 +25,7 @@ public class GildedRose
     //Refactor 1, smell: obsesión por primitivos en parámetro i.
     void UpdateQualityOfItemByIndex(int i)
     {
+        //Refactor 7: extract class!
         aklsjdflkadjf(i);
         DecreaseSellInByOneIfNotSulfuras(i);
         kdjfkajsd(i);
@@ -130,3 +131,15 @@ public class GildedRose
         }
     }
 }
+
+// Refactor 0: renombres que pueden ser problemáticos si nuestro IDE no se da cuenta (culpa de devs, no del IDE).
+# if FALSE
+public class SomethingThatCallsGildedRose
+{
+    public void DoSomething()
+    {
+        var gildedRose = new GildedRose(new List<Item>());
+        gildedRose.UpdateQuality();
+    }
+}
+#endif
