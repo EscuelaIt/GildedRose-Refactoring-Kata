@@ -43,14 +43,7 @@ public class GildedRose
                 //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
                 if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    //Refactor 4: smell código duplicado de algo que ya se extrajo parcialmente
-                    if (item.Quality > 0)
-                    {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            item.Quality -= 1;
-                        }
-                    }
+                    DecrementQualityByOneIfNotSulfuras(item);
                 }
                 else
                 {
@@ -98,8 +91,6 @@ public class GildedRose
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (item.SellIn is >= SomethingLikeThresholdOfBackstagePassesSellIn and >= 6)
-                    return;
                 if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
                 {
                     IncreaseQualityByOne(item);
@@ -121,7 +112,6 @@ public class GildedRose
         }
     }
 
-    //Refactor 1: smell: obsesión por primitivos en parámetro i.
     void DecrementQualityByOneIfNotSulfuras(Item item)
     {
         if (item.Quality > 0)
