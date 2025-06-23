@@ -10,6 +10,8 @@ public class GildedRose
     
     IList<Item> Items;
 
+    TimePassage timePassage = new TimePassage(MaxItemQuality);
+
     public GildedRose(IList<Item> Items)
     {
         this.Items = Items;
@@ -19,13 +21,7 @@ public class GildedRose
     {
         foreach (var item in Items)
         {
-            EndDayOf(item);
+            timePassage.PassOneDay(item);
         }
-    }
-    
-    void EndDayOf(Item item)
-    {
-        var timePassage = new TimePassage(item, MaxItemQuality);
-        timePassage.PassOneDay();
     }
 }

@@ -3,22 +3,25 @@
 class TimePassage
 {
     const int SomethingLikeThresholdOfBackstagePassesSellIn = 11;
-    readonly Item subject;
     readonly int maxItemQuality;
 
-    public TimePassage(Item subject, int maxItemQuality)
+    public TimePassage(int maxItemQuality)
     {
-        this.subject = subject;
         this.maxItemQuality = maxItemQuality;
     }
 
-    public void PassOneDay()
+    public void PassOneDay(Item item)
     {
-        aklsjdflkadjf(subject);
-        DecreaseSellInByOneIfNotSulfuras(subject);
-        kdjfkajsd(subject);
+        Process(item);
     }
-    
+
+    void Process(Item item)
+    {
+        aklsjdflkadjf(item);
+        DecreaseSellInByOneIfNotSulfuras(item);
+        kdjfkajsd(item);
+    }
+
     void aklsjdflkadjf(Item item)
     {
         if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
