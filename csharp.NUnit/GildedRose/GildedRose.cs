@@ -98,13 +98,11 @@ public class GildedRose
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
+                if (item.SellIn is >= SomethingLikeThresholdOfBackstagePassesSellIn and >= 6)
+                    return;
                 if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
                 {
-                    //Refactor 3: smell códido duplicado (esta es la primera vez)
-                    if (item.Quality < MaxItemQuality)
-                    {
-                        item.Quality += 1;
-                    }
+                    IncreaseQualityByOne(item);
                 }
 
                 if (item.SellIn < 6)
