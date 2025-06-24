@@ -26,7 +26,7 @@ class TimePassage
     {
         if (item.Name is "Aged Brie" or "Backstage passes to a TAFKAL80ETC concert")
         {
-            jkjfaklsd(item);
+            IncreaseQualityOfSpecialCases(item);
         }
         else
         {
@@ -34,7 +34,7 @@ class TimePassage
         }
     }
     
-    void jkjfaklsd(Item item)
+    void IncreaseQualityOfSpecialCases(Item item)
     {
         if (item.Quality >= maxItemQuality)
             return;
