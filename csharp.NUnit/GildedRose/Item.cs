@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public class Item
 {
@@ -37,8 +39,7 @@ public class Item
 
     public void IncrementQuality()
     {
-        if (Quality < MaxItemQuality)
-            Quality += 1;
+        Quality = Math.Min(MaxItemQuality, Quality + 1);
     }
     
     public void DecrementSellIn()
