@@ -15,7 +15,7 @@ public class Item
         
     }
 
-    public void DecrementQuality()
+    public virtual void DecrementQuality()
     {
         if (Name == "Backstage passes to a TAFKAL80ETC concert"
             && SellIn < 0)
@@ -26,15 +26,12 @@ public class Item
             IncrementQuality();
             return;
         }
-            
         
         if (Quality <= 0)
             return;
-        
-        if (Name == "Sulfuras, Hand of Ragnaros")
-            return;
-        
-        Quality -= 1;
+
+        if (Name != "Sulfuras, Hand of Ragnaros")
+            Quality -= 1;
     }
 
     public void IncrementQuality()
@@ -42,7 +39,7 @@ public class Item
         Quality = Math.Min(MaxItemQuality, Quality + 1);
     }
     
-    public void DecrementSellIn()
+    public virtual void DecrementSellIn()
     {
         if (Name != "Sulfuras, Hand of Ragnaros")
             SellIn -= 1;
