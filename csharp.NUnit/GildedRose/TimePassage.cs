@@ -70,7 +70,7 @@ class TimePassage
                 IncreaseQualityByOne(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                item.Quality -= item.Quality;
+                item.Quality -= item.Quality; //Refactor 1: feature envy y op matemática
                 break;
             default:
                 DecrementQualityByOne(item);
