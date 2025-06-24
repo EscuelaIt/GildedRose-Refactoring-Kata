@@ -22,8 +22,12 @@ public class Item
     public void IncrementQuality()
     {
         if (Quality < MaxItemQuality)
-        {
             Quality += 1;
-        }
+    }
+    
+    public void DecrementSellIn()
+    {
+        if (Name != "Sulfuras, Hand of Ragnaros")
+            SellIn -= 1;
     }
 }

@@ -18,7 +18,7 @@ class TimePassage
     void Process(Item item)
     {
         aklsjdflkadjf(item);
-        DecreaseSellInByOne(item);
+        item.DecrementSellIn();
         DecreaseQualityWhenOutOfDate(item);
     }
 
@@ -75,15 +75,6 @@ class TimePassage
             default:
                 item.DecrementQuality();
                 break;
-        }
-    }
-    
-    void DecreaseSellInByOne(Item item)
-    {
-        //Refactor 4: envidia de características.
-        if (item.Name != "Sulfuras, Hand of Ragnaros")
-        {
-            item.SellIn -= 1;
         }
     }
 }
