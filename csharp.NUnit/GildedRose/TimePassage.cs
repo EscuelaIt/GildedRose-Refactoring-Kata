@@ -57,24 +57,24 @@ class TimePassage
 
     void kdjfkajsd(Item item)
     {
-        if (item.SellIn < 0)
+        if (item.SellIn >= 0)
+            return;
+        
+        if (item.Name != "Aged Brie")
         {
-            if (item.Name != "Aged Brie")
+            //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
+            if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
-                //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
-                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    DecrementQualityByOneIfNotSulfuras(item);
-                }
-                else
-                {
-                    item.Quality -= item.Quality;
-                }
+                DecrementQualityByOneIfNotSulfuras(item);
             }
             else
             {
-                IncreaseQualityByOne(item);
+                item.Quality -= item.Quality;
             }
+        }
+        else
+        {
+            IncreaseQualityByOne(item);
         }
     }
     
