@@ -2,6 +2,8 @@
 
 public class Item
 {
+    internal const int MaxItemQuality = 50;
+
     public string Name { get; set; }
     public int SellIn { get; set; }
     public int Quality { get; set; }
@@ -15,5 +17,13 @@ public class Item
             return;
         
         Quality -= 1;
+    }
+
+    public void IncrementQuality()
+    {
+        if (Quality < MaxItemQuality)
+        {
+            Quality += 1;
+        }
     }
 }

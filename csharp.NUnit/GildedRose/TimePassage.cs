@@ -50,12 +50,12 @@ class TimePassage
     {
         if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
         {
-            IncreaseQualityByOne(item);
+            item.IncrementQuality();
         }
 
         if (item.SellIn < 6)
         {
-            IncreaseQualityByOne(item);
+            item.IncrementQuality();
         }
     }
 
@@ -67,7 +67,7 @@ class TimePassage
         switch (item.Name)
         {
             case "Aged Brie":
-                IncreaseQualityByOne(item);
+                item.IncrementQuality();
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 item.Quality = 0; //Refactor 1: feature envy
@@ -84,15 +84,6 @@ class TimePassage
         if (item.Name != "Sulfuras, Hand of Ragnaros")
         {
             item.SellIn -= 1;
-        }
-    }
-
-    void IncreaseQualityByOne(Item item)
-    {
-        //Refactor 3: envidia de características.
-        if (item.Quality < maxItemQuality)
-        {
-            item.Quality += 1;
         }
     }
 }

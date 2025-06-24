@@ -5,12 +5,11 @@ namespace GildedRoseKata;
 
 public class GildedRose
 {
-    const int MaxItemQuality = 50;
     const int SomethingLikeThresholdOfBackstagePassesSellIn = 11;
     
     IList<Item> Items;
 
-    TimePassage timePassage = new TimePassage(MaxItemQuality);
+    TimePassage timePassage = new TimePassage(Item.MaxItemQuality);
 
     public GildedRose(IList<Item> Items)
     {
