@@ -30,7 +30,7 @@ class TimePassage
         }
         else
         {
-            DecrementQualityByOne(item);
+            item.DecrementQuality();
         }
     }
     
@@ -70,10 +70,10 @@ class TimePassage
                 IncreaseQualityByOne(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                item.Quality -= item.Quality; //Refactor 1: feature envy y op matemática
+                item.Quality = 0; //Refactor 1: feature envy
                 break;
             default:
-                DecrementQualityByOne(item);
+                item.DecrementQuality();
                 break;
         }
     }
@@ -86,19 +86,7 @@ class TimePassage
             item.SellIn -= 1;
         }
     }
-    
-    void DecrementQualityByOne(Item item)
-    {
-        //Refactor 2: envidia de características.
-        if (item.Quality > 0)
-        {
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.Quality -= 1;
-            }
-        }
-    }
-    
+
     void IncreaseQualityByOne(Item item)
     {
         //Refactor 3: envidia de características.
