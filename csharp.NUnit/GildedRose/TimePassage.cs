@@ -42,15 +42,20 @@ class TimePassage
 
         if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
-            {
-                IncreaseQualityByOne(item);
-            }
+            HandleBackstagePassQuality(item);
+        }
+    }
 
-            if (item.SellIn < 6)
-            {
-                IncreaseQualityByOne(item);
-            }
+    void HandleBackstagePassQuality(Item item)
+    {
+        if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
+        {
+            IncreaseQualityByOne(item);
+        }
+
+        if (item.SellIn < 6)
+        {
+            IncreaseQualityByOne(item);
         }
     }
 
