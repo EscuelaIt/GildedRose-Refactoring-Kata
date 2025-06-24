@@ -19,7 +19,7 @@ class TimePassage
     {
         aklsjdflkadjf(item);
         DecreaseSellInByOneIfNotSulfuras(item);
-        kdjfkajsd(item);
+        DecreaseQualityWhenOutOfDate(item);
     }
 
     void aklsjdflkadjf(Item item)
@@ -55,12 +55,16 @@ class TimePassage
         }
     }
 
-    void kdjfkajsd(Item item)
+    void DecreaseQualityWhenOutOfDate(Item item)
     {
         if (item.SellIn >= 0)
             return;
-        
-        if (item.Name != "Aged Brie")
+
+        if (item.Name == "Aged Brie")
+        {
+            IncreaseQualityByOne(item);
+        }
+        else
         {
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
@@ -70,10 +74,6 @@ class TimePassage
             {
                 DecrementQualityByOneIfNotSulfuras(item);
             }
-        }
-        else
-        {
-            IncreaseQualityByOne(item);
         }
     }
     
