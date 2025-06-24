@@ -80,7 +80,7 @@ class TimePassage
     
     void DecreaseSellInByOne(Item item)
     {
-        //Refactor 1: envidia de características.
+        //Refactor 4: envidia de características.
         if (item.Name != "Sulfuras, Hand of Ragnaros")
         {
             item.SellIn -= 1;
@@ -89,7 +89,7 @@ class TimePassage
     
     void DecrementQualityByOne(Item item)
     {
-        //Refactor 1: envidia de características.
+        //Refactor 2: envidia de características.
         if (item.Quality > 0)
         {
             if (item.Name != "Sulfuras, Hand of Ragnaros")
@@ -101,7 +101,7 @@ class TimePassage
     
     void IncreaseQualityByOne(Item item)
     {
-        //Refactor 1: envidia de características.
+        //Refactor 3: envidia de características.
         if (item.Quality < maxItemQuality)
         {
             item.Quality += 1;
