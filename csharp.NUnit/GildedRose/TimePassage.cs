@@ -32,25 +32,24 @@ class TimePassage
         {
             DecrementQualityByOne(item);
         }
+    }
+    
+    void jkjfaklsd(Item item)
+    {
+        if (item.Quality >= maxItemQuality)
+            return;
+        item.Quality += 1;
 
-        void jkjfaklsd(Item item)
+        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            if (item.Quality < maxItemQuality)
+            if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
             {
-                item.Quality += 1;
+                IncreaseQualityByOne(item);
+            }
 
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
-                    {
-                        IncreaseQualityByOne(item);
-                    }
-
-                    if (item.SellIn < 6)
-                    {
-                        IncreaseQualityByOne(item);
-                    }
-                }
+            if (item.SellIn < 6)
+            {
+                IncreaseQualityByOne(item);
             }
         }
     }
