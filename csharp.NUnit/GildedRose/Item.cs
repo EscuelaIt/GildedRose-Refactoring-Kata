@@ -21,17 +21,7 @@ public class Item
             && SellIn < 0)
             Quality = 0;
 
-        if (Name == "Aged Brie" && SellIn < 0)
-        {
-            IncrementQuality();
-            return;
-        }
-        
-        if (Quality <= 0)
-            return;
-
-        if (Name != "Sulfuras, Hand of Ragnaros")
-            Quality -= 1;
+        Quality = Math.Max(0, Quality - 1);
     }
 
     public void IncrementQuality()
@@ -41,7 +31,6 @@ public class Item
     
     public virtual void DecrementSellIn()
     {
-        if (Name != "Sulfuras, Hand of Ragnaros")
-            SellIn -= 1;
+        SellIn -= 1;
     }
 }
