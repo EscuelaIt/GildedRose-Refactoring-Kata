@@ -62,7 +62,6 @@ class TimePassage
         
         if (item.Name != "Aged Brie")
         {
-            //Refactor2, smell: aquí hay un ejemplo de string hardcodeada.
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
                 item.Quality -= item.Quality;
