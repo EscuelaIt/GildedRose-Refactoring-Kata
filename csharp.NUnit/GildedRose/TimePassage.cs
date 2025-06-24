@@ -69,9 +69,6 @@ class TimePassage
             case "Aged Brie":
                 item.IncrementQuality();
                 break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                item.Quality = 0; //Refactor 1: feature envy
-                break;
             default:
                 item.DecrementQuality();
                 break;

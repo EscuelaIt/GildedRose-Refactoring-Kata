@@ -10,6 +10,11 @@ public class Item
 
     public void DecrementQuality()
     {
+        if (Name == "Backstage passes to a TAFKAL80ETC concert"
+            && SellIn < 0)
+            Quality = 0;
+            
+        
         if (Quality <= 0)
             return;
         
