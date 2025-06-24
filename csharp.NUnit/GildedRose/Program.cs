@@ -12,7 +12,7 @@ public class Program
         IList<Item> items = new List<Item>
         {
             new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-            new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
+            AgedBrie.With(sellIn: 2, quality: 0),
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
             Sulfuras.With(sellIn: 0, quality: 80),
             Sulfuras.With(sellIn: -1, quality: 80),
