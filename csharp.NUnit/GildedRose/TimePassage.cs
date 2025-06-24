@@ -18,7 +18,7 @@ class TimePassage
     void Process(Item item)
     {
         aklsjdflkadjf(item);
-        DecreaseSellInByOneIfNotSulfuras(item);
+        DecreaseSellInByOne(item);
         DecreaseQualityWhenOutOfDate(item);
     }
 
@@ -26,7 +26,7 @@ class TimePassage
     {
         if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
         {
-            DecrementQualityByOneIfNotSulfuras(item);
+            DecrementQualityByOne(item);
         }
         else
         {
@@ -69,12 +69,12 @@ class TimePassage
                 item.Quality -= item.Quality;
                 break;
             default:
-                DecrementQualityByOneIfNotSulfuras(item);
+                DecrementQualityByOne(item);
                 break;
         }
     }
     
-    void DecreaseSellInByOneIfNotSulfuras(Item item)
+    void DecreaseSellInByOne(Item item)
     {
         //Refactor 1: envidia de características.
         if (item.Name != "Sulfuras, Hand of Ragnaros")
@@ -83,7 +83,7 @@ class TimePassage
         }
     }
     
-    void DecrementQualityByOneIfNotSulfuras(Item item)
+    void DecrementQualityByOne(Item item)
     {
         //Refactor 1: envidia de características.
         if (item.Quality > 0)
