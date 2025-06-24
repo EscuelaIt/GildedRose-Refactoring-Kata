@@ -73,10 +73,7 @@ class TimePassage
             }
             else
             {
-                if (item.Quality < maxItemQuality)
-                {
-                    item.Quality += 1;
-                }
+                IncreaseQualityByOne(item);
             }
         }
     }
