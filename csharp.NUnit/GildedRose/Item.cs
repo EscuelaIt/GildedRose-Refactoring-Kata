@@ -8,11 +8,22 @@ public class Item
     public int SellIn { get; set; }
     public int Quality { get; set; }
 
+    public void PassDay()
+    {
+        
+    }
+
     public void DecrementQuality()
     {
         if (Name == "Backstage passes to a TAFKAL80ETC concert"
             && SellIn < 0)
             Quality = 0;
+
+        if (Name == "Aged Brie" && SellIn < 0)
+        {
+            IncrementQuality();
+            return;
+        }
             
         
         if (Quality <= 0)

@@ -42,36 +42,21 @@ class TimePassage
 
         if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            HandleBackstagePassQuality(item);
-        }
-    }
+            if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
+            {
+                item.IncrementQuality();
+            }
 
-    void HandleBackstagePassQuality(Item item)
-    {
-        if (item.SellIn < SomethingLikeThresholdOfBackstagePassesSellIn)
-        {
-            item.IncrementQuality();
-        }
-
-        if (item.SellIn < 6)
-        {
-            item.IncrementQuality();
+            if (item.SellIn < 6)
+            {
+                item.IncrementQuality();
+            }
         }
     }
 
     void DecreaseQualityWhenOutOfDate(Item item)
     {
-        if (item.SellIn >= 0)
-            return;
-
-        switch (item.Name)
-        {
-            case "Aged Brie":
-                item.IncrementQuality();
-                break;
-            default:
-                item.DecrementQuality();
-                break;
-        }
+        if (item.SellIn < 0)
+            item.DecrementQuality();
     }
 }

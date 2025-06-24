@@ -21,6 +21,7 @@ public class GildedRose
         foreach (var item in Items)
         {
             timePassage.PassOneDay(item);
+            item.PassDay();
         }
     }
 }
