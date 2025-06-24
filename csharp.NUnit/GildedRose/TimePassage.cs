@@ -60,20 +60,17 @@ class TimePassage
         if (item.SellIn >= 0)
             return;
 
-        if (item.Name == "Aged Brie")
+        switch (item.Name)
         {
-            IncreaseQualityByOne(item);
-        }
-        else
-        {
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-            {
+            case "Aged Brie":
+                IncreaseQualityByOne(item);
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
                 item.Quality -= item.Quality;
-            }
-            else
-            {
+                break;
+            default:
                 DecrementQualityByOneIfNotSulfuras(item);
-            }
+                break;
         }
     }
     
