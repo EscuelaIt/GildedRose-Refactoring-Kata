@@ -6,6 +6,16 @@ public class Item
 {
     internal const int MaxItemQuality = 50;
 
+    public static Item With(string name, int sellIn, int quality)
+    {
+        return new()
+        {
+            Name = name,
+            SellIn = sellIn,
+            Quality = quality
+        };
+    }
+
     public string Name { get; set; }
     public int SellIn { get; set; }
     public int Quality { get; set; }

@@ -11,31 +11,15 @@ public class Program
 
         IList<Item> items = new List<Item>
         {
-            new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
+            Item.With("+5 Dexterity Vest", 10, 20),
             AgedBrie.With(sellIn: 2, quality: 0),
-            new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
+            Item.With("Elixir of the Mongoose", 5, 7),
             Sulfuras.With(sellIn: 0, quality: 80),
             Sulfuras.With(sellIn: -1, quality: 80),
-            new Item
-            {
-                Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 15,
-                Quality = 20
-            },
-            new Item
-            {
-                Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 10,
-                Quality = 49
-            },
-            new Item
-            {
-                Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 5,
-                Quality = 49
-            },
-            // this conjured item does not work properly yet
-            new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+            BackstagePass.With(15, 20),
+            BackstagePass.With(10, 49),
+            BackstagePass.With(5, 49),
+            Item.With("Conjured Mana Cake", 3, 6)
         };
 
         var app = new GildedRose(items);
