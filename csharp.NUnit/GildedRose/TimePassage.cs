@@ -24,15 +24,15 @@ class TimePassage
 
     void aklsjdflkadjf(Item item)
     {
-        if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
-        {
-            DecrementQualityByOne(item);
-        }
-        else
+        if (item.Name is "Aged Brie" or "Backstage passes to a TAFKAL80ETC concert")
         {
             jkjfaklsd(item);
         }
-        
+        else
+        {
+            DecrementQualityByOne(item);
+        }
+
         void jkjfaklsd(Item item)
         {
             if (item.Quality < maxItemQuality)
